@@ -5,18 +5,10 @@ const App = () => {
   return (
     <div>
       <WebcamCapture
-        mainButtonText=""
-        mainButtonColor="#7e00bf"
-        takePictureText="Capture"
-        uploadImageText="Upload"
-        dialogBackgroundColor="white"
-        successMessage="Image uploaded successfully!"
-        mainTextColor="white"
+        mainButtonColor="#2ea5e1"
         apiKey="23232323"
         cloudName="cloud"
         presetName="preset"
-        customIcons={{
-        }}
       />
     </div>
   );

@@ -44,15 +44,15 @@ const defaultVideoConstraints = {
 
 const WebcamCapture: React.FC<WebcamCaptureProps> = ({
   mainButtonText = "",
-  mainTextColor = "",
-  mainButtonColor = "",
-  takePictureText = "",
-  uploadImageText = "",
-  dialogBackgroundColor = "",
-  cameraButtonColor = "",
-  cameraTextColor = "",
-  uploadButtonColor = "",
-  uploadTextColor = "",
+  mainTextColor = "white",
+  mainButtonColor = "#292d3e",
+  takePictureText = "Camera",
+  uploadImageText = "Upload",
+  dialogBackgroundColor = "white",
+  cameraButtonColor = "black",
+  cameraTextColor = "white",
+  uploadButtonColor = "black",
+  uploadTextColor = "white",
   successMessage = "",
   customIcons = {},
   cloudName,
@@ -146,29 +146,46 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
     ),
   };
 
+  const applyColorStyle = (color: string) => {
+    if (color.startsWith("#")) {
+      return { backgroundColor: color };
+    }
+    return { backgroundColor: `bg-${color}` };
+  };
+
   return (
     <div className="">
       <Dialog>
         <DialogTrigger
-          className={`bg-[${mainButtonColor}] flex gap-1 py-2 px-4 rounded-xl text-${mainTextColor}`}>
+          className="flex gap-1 py-2 px-4 rounded-xl"
+          style={{
+            ...applyColorStyle(mainButtonColor),
+            color: mainTextColor,
+          }}>
           {mainButtonText}
           {icons.edit}
         </DialogTrigger>
         <DialogContent
           aria-describedby={undefined}
-          className={`border-none bg-[${dialogBackgroundColor}]`}>
+          className={"border-none"}
+          style={applyColorStyle(dialogBackgroundColor)}>
           <DialogHeader className="h-fit w-full">
             <DialogTitle className="mb-2">Seleccione una opción</DialogTitle>
             <DialogDescription className="flex items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger
-                  className={`bg-[${cameraButtonColor}] text-[${cameraTextColor}] font-bold py-2 px-4 mt-4 rounded-full flex`}
+                  className="py-2 px-4 mt-4 rounded-full flex"
+                  style={{
+                    backgroundColor: cameraButtonColor,
+                    color: cameraTextColor,
+                  }}
                   onClick={() => setShowCamera(true)}>
                   {takePictureText}
                 </DialogTrigger>
                 <DialogContent
                   aria-describedby={undefined}
-                  className={`border-none bg-[${dialogBackgroundColor}]`}>
+                  className={"border-none"}
+                  style={applyColorStyle(dialogBackgroundColor)}>
                   <DialogTitle>Capturando cámara...</DialogTitle>
                   <DialogHeader>
                     {showCamera && (
@@ -253,13 +270,18 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
 
               <Dialog>
                 <DialogTrigger
-                  className={`bg-[${uploadButtonColor}] text-[${uploadTextColor}] font-bold py-2 px-4 mt-4 rounded-full flex`}
+                  className="py-2 px-4 mt-4 rounded-full flex"
+                  style={{
+                    backgroundColor: uploadButtonColor,
+                    color: uploadTextColor,
+                  }}
                   onClick={() => setShowFileUpload(true)}>
                   {uploadImageText}
                 </DialogTrigger>
                 <DialogContent
                   aria-describedby={undefined}
-                  className={`bg-[${dialogBackgroundColor}] min-h-[400px] flex flex-col justify-center items-center`}>
+                  className="min-h-[400px] flex flex-col justify-center items-center"
+                  style={applyColorStyle(dialogBackgroundColor)}>
                   <DialogTitle>Ingrese una imagen</DialogTitle>
                   {showFileUpload && (
                     <div className="">
