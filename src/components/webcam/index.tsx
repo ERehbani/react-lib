@@ -44,7 +44,7 @@ const defaultVideoConstraints = {
 
 const WebcamCapture: React.FC<WebcamCaptureProps> = ({
   mainButtonText = "",
-  mainTextColor = "white",
+  mainTextColor = "black",
   mainButtonColor = "#292d3e",
   takePictureText = "Camera",
   uploadImageText = "Upload",
@@ -150,7 +150,13 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
     if (color.startsWith("#")) {
       return { backgroundColor: color };
     }
-    return { backgroundColor: `bg-${color}` };
+    // Check if it's a valid CSS color name
+    const isValidColor = CSS.supports("color", color);
+    if (isValidColor) {
+      return { backgroundColor: color };
+    }
+    // Fallback to Tailwind classes if it's not a valid CSS color
+    return { backgroundColor: `bg-${color}-600` };
   };
 
   return (

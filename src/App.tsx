@@ -5,7 +5,8 @@ const App = () => {
   return (
     <div>
       <WebcamCapture
-        mainButtonColor="#2ea5e1"
+        mainButtonColor="#7e00bf"
+        mainTextColor="white"
         apiKey="23232323"
         cloudName="cloud"
         presetName="preset"
