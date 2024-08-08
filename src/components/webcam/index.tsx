@@ -291,7 +291,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({
                   <DialogTitle>Ingrese una imagen</DialogTitle>
                   {showFileUpload && (
                     <div className="">
-                      <MyDropzone apiKey="" cloudName="" presetName="" />
+                      <MyDropzone apiKey={apiKey} cloudName={cloudName} presetName={presetName} />
                     </div>
                   )}
                 </DialogContent>
