@@ -65,6 +65,8 @@ const MyDropzone: React.FC<UploadImageProps> = ({
     xhr.send(formData);
   };
 
+  console.log(apiKey, cloudName, presetName, { dataURL: dataURL });
+
   return (
     <div className="max-w-[300px] mx-auto mt-10">
       <div className="border border-dashed border-gray-500 rounded-md w-full flex justify-center items-center overflow-hidden">
@@ -85,7 +87,7 @@ const MyDropzone: React.FC<UploadImageProps> = ({
                   <button
                     type="button"
                     onClick={uploadImage}
-                    className="bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded-full">
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded-full ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
