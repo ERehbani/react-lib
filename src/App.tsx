@@ -7,9 +7,9 @@ const App = () => {
       <WebcamCapture
         mainButtonColor="#7e00bf"
         mainTextColor="white"
-        apiKey="23232323"
-        cloudName="cloud"
-        presetName="preset"
+        apiKey="264592341453854"
+        cloudName="dmnb6cfzj"
+        presetName="Preset_Ozono"
       />
     </div>
   );
