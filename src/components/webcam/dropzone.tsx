@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const MyDropzone = ({ cloudName, apiKey, presetName }) => {
   const [dataURL, setDataURL] = useState(null);
